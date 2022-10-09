@@ -15,8 +15,9 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
   List<Widget> mediaList = [];
   List<AssetEntity> selectedAssets = [];
 
-  int currentRange = 0;
-  int lastRange = 0;
+  // int currentPage = 0;
+  int currentIndex = 0;
+  int lastIndex = 0;
 
   @override
   void initState() {
@@ -26,23 +27,22 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
 
   void _handleScrollEvent(ScrollNotification scroll) {
     if (scroll.metrics.pixels / scroll.metrics.maxScrollExtent > 0.33) {
-      if (currentRange != lastRange) {
+      if (currentIndex < lastIndex) {
         _fetchNewMedia();
       }
     }
   }
 
   _fetchNewMedia() async {
-    lastRange = currentRange;
-
     List<AssetPathEntity> albums = await PhotoManager.getAssetPathList(
       type: RequestType.image,
     );
 
     List<AssetEntity> media = await albums[0].getAssetListRange(
-      start: currentRange,
-      end: currentRange + 60,
+      start: currentIndex,
+      end: currentIndex + 30,
     );
+    lastIndex = await albums[0].assetCountAsync;
 
     List<Widget> temp = [];
     for (var asset in media) {
@@ -70,7 +70,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
     }
     setState(() {
       mediaList.addAll(temp);
-      currentRange++;
+      currentIndex += 30;
     });
   }
 
