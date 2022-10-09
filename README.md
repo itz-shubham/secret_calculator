@@ -1,16 +1,9 @@
-# secret_calculator
+# Secret Calculator
 
-A new Flutter project.
+A calculator app where user can hide their photo
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![Cover Image](https://raw.githubusercontent.com/Itz-Shubham/secret_calculator/main/secret_calculator_cover.png)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### [Download](https://github.com/Itz-Shubham/secret_calculator/raw/main/app-release.apk)
